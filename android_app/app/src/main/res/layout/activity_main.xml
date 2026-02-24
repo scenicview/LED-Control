@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1a1a2e"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="RGB LED Controller"
+            android:textColor="@android:color/white"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Device Selection Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#16213e"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="DEVICE"
+                android:textColor="#888888"
+                android:textSize="14sp"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- Connected Device Info -->
+            <LinearLayout
+                android:id="@+id/connectedDeviceLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:visibility="gone"
+                android:layout_marginBottom="8dp">
+
+                <View
+                    android:id="@+id/connectionIndicator"
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:background="@drawable/connection_indicator"
+                    android:layout_marginEnd="8dp"/>
+
+                <TextView
+                    android:id="@+id/connectedDeviceName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Device Name"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"/>
+
+                <Button
+                    android:id="@+id/disconnectButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:text="Disconnect"
+                    android:backgroundTint="#e94560"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:textAllCaps="false"/>
+            </LinearLayout>
+
+            <!-- Scan Button -->
+            <Button
+                android:id="@+id/scanButton"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="Scan for Devices"
+                android:backgroundTint="#0f3460"
+                android:textColor="@android:color/white"
+                android:textAllCaps="false"/>
+
+            <!-- Scanning indicator -->
+            <LinearLayout
+                android:id="@+id/scanningLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:visibility="gone"
+                android:layout_marginTop="12dp">
+
+                <ProgressBar
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginEnd="8dp"
+                    android:indeterminateTint="#e94560"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Scanning..."
+                    android:textColor="#888888"/>
+            </LinearLayout>
+
+            <!-- Device List -->
+            <LinearLayout
+                android:id="@+id/deviceListContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="12dp"/>
+
+        </LinearLayout>
+
+        <!-- Preview -->
+        <View
+            android:id="@+id/previewView"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#FF0000"
+            android:layout_marginBottom="20dp"/>
+
+        <!-- Power Button -->
+        <Button
+            android:id="@+id/powerButton"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="POWER ON"
+            android:backgroundTint="#e94560"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Colors Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#16213e"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="COLOR"
+                android:textColor="#888888"
+                android:textSize="14sp"
+                android:layout_marginBottom="12dp"/>
+
+            <GridLayout
+                android:id="@+id/colorGrid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="5"
+                android:rowCount="3"
+                android:useDefaultMargins="true"/>
+        </LinearLayout>
+
+        <!-- Mode Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#16213e"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="MODE"
+                android:textColor="#888888"
+                android:textSize="14sp"
+                android:layout_marginBottom="12dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/modeNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="4dp"
+                    android:text="Normal"
+                    android:backgroundTint="#0f3460"
+                    android:textColor="@android:color/white"
+                    android:textAllCaps="false"
+                    android:textSize="12sp"/>
+
+                <Button
+                    android:id="@+id/modePulse"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="4dp"
+                    android:text="Pulse"
+                    android:backgroundTint="#0f3460"
+                    android:textColor="@android:color/white"
+                    android:textAllCaps="false"
+                    android:textSize="12sp"/>
+
+                <Button
+                    android:id="@+id/modeStrobe"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="4dp"
+                    android:text="Strobe"
+                    android:backgroundTint="#0f3460"
+                    android:textColor="@android:color/white"
+                    android:textAllCaps="false"
+                    android:textSize="12sp"/>
+
+                <Button
+                    android:id="@+id/modePrincess"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="Princess"
+                    android:backgroundTint="#DDA0DD"
+                    android:textColor="@android:color/white"
+                    android:textAllCaps="false"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Brightness Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#16213e"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="BRIGHTNESS"
+                android:textColor="#888888"
+                android:textSize="14sp"
+                android:layout_marginBottom="12dp"/>
+
+            <SeekBar
+                android:id="@+id/brightnessSeekBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:progressTint="#e94560"
+                android:thumbTint="#e94560"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

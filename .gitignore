@@ -1,0 +1,25 @@
+# PlatformIO
+.pio/
+.vscode/
+
+# Build scripts / logs
+build.bat
+monitor.bat
+build_verbose.log
+
+# Generated files
+generate_pinout_pdf.py
+
+# Android build artifacts
+android_app/.gradle/
+android_app/app/build/
+android_app/build/
+android_app/local.properties
+
+# OS files
+.DS_Store
+Thumbs.db
+nul
+
+# Claude settings
+.claude/
